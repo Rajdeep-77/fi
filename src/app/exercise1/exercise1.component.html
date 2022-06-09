@@ -1,0 +1,53 @@
+<h1>Exercise-1</h1>
+<h4>Exercise-1.1</h4>
+<input type="text" [(ngModel)]="inputEx1">
+<div *ngIf="buttonClicked">length is: {{ inputEx1Length }}</div><br><br>
+<button class="btn btn-primary" (click)="showLength()">Show Length</button><br><br>
+<button class="btn btn-primary" (click)="inputEx1='';buttonClicked=false">Remove Input</button>
+<hr>
+
+<h4>Exercise-1.2</h4>
+<label>Name:</label>
+<input type="text" [(ngModel)]="usName">
+<label>Age:</label>
+<input type="number" min="0" [(ngModel)]="usAge">
+<div *ngIf="buttonState">{{ userDetails.name }} {{ userDetails.age }}</div><br><br>
+<button class="btn btn-primary" (click)="showObj();usName='';usAge=null;" [disabled]="buttonState">Show Object</button><br><br>
+<button class="btn btn-primary" (click)="buttonState=false">Unhide button</button>
+<hr>
+
+<h4>Exercise-1.3</h4>
+<label>Name:</label>
+<input type="text" [(ngModel)]="userNameOfEx3">
+<label>Age:</label>
+<input type="number" min="0" [(ngModel)]="userAge">
+<div *ngIf="displayArray">
+    <p *ngFor="let emp of userArr;">{{ emp.name }},{{ emp.age}}</p> 
+</div>
+<br><br>
+<button class="btn btn-primary" (click)="showArr();userNameOfEx3='';userAge=null">Show Array</button>
+<hr>
+
+<h4>Exercise-1.4</h4>
+<label>Enter Number:</label>
+<input type="number"  [(ngModel)]="numOfEx4" (click)="displaynum=false">
+<div *ngIf="displaynum" [ngStyle]="{color:numOfEx4 % 2 ? 'red':'green' }" >{{ numOfEx4 }}</div><br><br>
+<button class="btn btn-primary" (click)="showNum()">Display</button>
+<hr>
+
+<h4>Exercise-1.5</h4>
+<div>
+  <p appCustomDir>
+    <span>Hello</span><br>
+    <span>Hello</span><br>
+    <button>Hey</button><br>
+    <span>Hello</span><br>
+    <span>Hello</span><br>
+    <i>hey</i><br>
+    <i>hey</i><br>
+    <i>hey</i><br>
+    <span>Hello</span><br>
+    <span>Hello</span><br>
+  </p>
+</div>
+<hr>

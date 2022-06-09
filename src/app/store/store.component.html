@@ -1,0 +1,25 @@
+<hr>
+<h1>Exercise-2</h1>
+<h3> Exercise-2.1</h3>
+<label>Name:</label>
+<input type="text" [(ngModel)]="itemName">
+<label>Description:</label>
+<input type="text" [(ngModel)]="itemDesc">
+<label>Price:</label>
+<input type="number" [(ngModel)]="itemPrice" min="0"><br><br>
+<button class="btn btn-primary" (click)="addItems();itemName='';itemDesc='';itemPrice=null">Add item</button><br><br>
+<div *ngIf="showTable">
+    <table class="storeTable table" >
+            <tr class="table">
+                <th style="border: 2px solid;"><b>Name</b></th>
+                <th style="border: 2px solid;"><b>Desciption</b></th>
+                <th style="border: 2px solid;"><b>Price</b></th>
+            </tr>
+            <tr *ngFor="let el of storeItems" [ngClass]="{redRecord: el.price>999 }">
+                <td style="border: 2px solid;">{{ el.name }}</td>
+                <td style="border: 2px solid;">{{ el.description }}</td>
+                <td style="border: 2px solid;">{{ el.price }}</td>
+            </tr>
+    </table>
+</div>
+<hr>
