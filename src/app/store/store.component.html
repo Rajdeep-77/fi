@@ -1,13 +1,18 @@
 <hr>
 <h1>Exercise-2</h1>
 <h3> Exercise-2.1</h3>
+<h6>Enter name, description and price of the item to add it into the table-data(Items with price higher than or equal to 1000 will be highlighted.)</h6>
+
 <label>Name:</label>
-<input type="text" [(ngModel)]="itemName">
+<input type="text" [(ngModel)]="itemName" required>
 <label>Description:</label>
-<input type="text" [(ngModel)]="itemDesc">
+<input type="text" [(ngModel)]="itemDesc" required>
 <label>Price:</label>
-<input type="number" [(ngModel)]="itemPrice" min="0"><br><br>
+<input type="number" [(ngModel)]="itemPrice" min="0" required><br>
+<p *ngIf="inputMissing" class="allInputReq">Please fill in all input fields above !</p>
+<br>
 <button class="btn btn-primary" (click)="addItems();itemName='';itemDesc='';itemPrice=null">Add item</button><br><br>
+
 <div *ngIf="showTable">
     <table class="storeTable table" >
             <tr class="table">

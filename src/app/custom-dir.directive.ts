@@ -11,18 +11,14 @@ export class CustomDirDirective {
 
   constructor(el:ElementRef) {
    this.el=el;
-    // console.log(el.nativeElement.children)
-    // if(el.nativeElement.children==='span'){
-    //  el.nativeElement.children.style.backgroundColor='rosybrown';
-    // }
   }
+
+  // exercise 1.5 This function highlights all the span tags inside p tag.
   ngAfterViewInit(){
-    // const hostElem = this.el.nativeElement;
     var hostElem = 'span';
     console.log(hostElem);
     for(let i=0; i<this.el.nativeElement.children.length; i++){
-      //console.log('yes');
-      // console.log(this.el.nativeElement.children[i]);
+     
       if(this.el.nativeElement.children[i].localName==hostElem){
 
         (this.el.nativeElement.children[i]).style.backgroundColor='rosybrown';

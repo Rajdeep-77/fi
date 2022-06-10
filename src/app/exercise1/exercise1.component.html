@@ -1,22 +1,27 @@
 <h1>Exercise-1</h1>
 <h4>Exercise-1.1</h4>
+<h6>Enter input to get the length.</h6>
 <input type="text" [(ngModel)]="inputEx1">
 <div *ngIf="buttonClicked">length is: {{ inputEx1Length }}</div><br><br>
-<button class="btn btn-primary" (click)="showLength()">Show Length</button><br><br>
+<button class="btn btn-primary" (click)="showLength();inputEx1=''" [disabled]="buttonClicked">Show Length</button><br><br>
 <button class="btn btn-primary" (click)="inputEx1='';buttonClicked=false">Remove Input</button>
 <hr>
 
 <h4>Exercise-1.2</h4>
+<h6>Enter input as name & age, to get the object.</h6>
+
 <label>Name:</label>
 <input type="text" [(ngModel)]="usName">
 <label>Age:</label>
 <input type="number" min="0" [(ngModel)]="usAge">
-<div *ngIf="buttonState">{{ userDetails.name }} {{ userDetails.age }}</div><br><br>
-<button class="btn btn-primary" (click)="showObj();usName='';usAge=null;" [disabled]="buttonState">Show Object</button><br><br>
+<div *ngIf="buttonState"> {{ userDetails.name }} , {{ userDetails.age }} </div><br><br>
+<button class="btn btn-primary" (click)="showObj();usName='';usAge=null;" [ngClass]="{ hidden : buttonState }">Show Object</button><br><br>
 <button class="btn btn-primary" (click)="buttonState=false">Unhide button</button>
+
 <hr>
 
 <h4>Exercise-1.3</h4>
+<h6>Enter input as name & age, to get the array of them.</h6>
 <label>Name:</label>
 <input type="text" [(ngModel)]="userNameOfEx3">
 <label>Age:</label>
@@ -29,13 +34,15 @@
 <hr>
 
 <h4>Exercise-1.4</h4>
+<h6>Enter input number, to check whether the number is odd or even (odd will be displayed in red, even will be displayed in green).</h6>
 <label>Enter Number:</label>
-<input type="number"  [(ngModel)]="numOfEx4" (click)="displaynum=false">
-<div *ngIf="displaynum" [ngStyle]="{color:numOfEx4 % 2 ? 'red':'green' }" >{{ numOfEx4 }}</div><br><br>
-<button class="btn btn-primary" (click)="showNum()">Display</button>
+<input type="number"  [(ngModel)]="numOfEx4" >
+<div *ngIf="displaynum" [ngStyle]="{color:resultOfEx4 % 2 ? 'red':'green' }" >{{ resultOfEx4 }}</div><br><br>
+<button class="btn btn-primary" (click)="showNum();numOfEx4=null">Display</button>
 <hr>
 
 <h4>Exercise-1.5</h4>
+<h6>This exercise highlights all the particular type of child tags inside a parent tag (e.g.:-all the "<b>span</b>" tags inside "<b>p</b>" tag).</h6>
 <div>
   <p appCustomDir>
     <span>Hello</span><br>
