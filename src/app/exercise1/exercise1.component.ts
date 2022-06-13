@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class Exercise1Component implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
@@ -26,20 +26,24 @@ export class Exercise1Component implements OnInit {
   usAge:number;
   userDetails:object = {};
   buttonState=false;
+  inputOf2Dis=true;
   
 
   // exercise 1.3 variables
-  userNameOfEx3:string;
-  userAge:number;
+  userNameOfEx3:string='';
+  userAge:number=null;
   userArr=[];
   userData:object = {};
   displayArray=false;
+  inputOf3Dis=true;
+ 
+ 
   
-
   // exercise 1.4 variables
   numOfEx4:number;
   resultOfEx4:number;
   displaynum=false;
+ 
   
 
   //___________________Exercise-1__________functions____________________________________
@@ -51,19 +55,36 @@ export class Exercise1Component implements OnInit {
   }
 
   // exercise 1.2 This function returns the object of input fields name & age.
+
   showObj(){
-    this.buttonState= true;
-    this.userDetails = { name:this.usName, age:this.usAge };
+    if(this.usName=='' || this.usAge==null){
+      this.inputOf2Dis=true;
+    }
+    else{
+      this.inputOf2Dis=false;
+      this.buttonState= true;
+      this.userDetails = { name:this.usName, age:this.usAge };
+    }
+    
   }
 
   // exercise 1.3 This function returns the array of objects of given input fields.
+
   showArr(){
-    this.displayArray=true;
-    this.userData = { name:this.userNameOfEx3, age:this.userAge };
-    this.userArr.push(this.userData);
+    if(this.userNameOfEx3=='' || this.userAge==null){
+      this.inputOf3Dis=true;
+    }
+    else{
+      this.inputOf3Dis=false;
+      this.displayArray=true;
+      this.userData = { name:this.userNameOfEx3, age:this.userAge };
+      this.userArr.push(this.userData);
+    }
+    
   }
 
   // exercise 1.4 This function will display the number 
+  
   showNum(){
     this.resultOfEx4=this.numOfEx4;
     this.displaynum=true;

@@ -8,7 +8,7 @@
 <label>Description:</label>
 <input type="text" [(ngModel)]="itemDesc" required>
 <label>Price:</label>
-<input type="number" [(ngModel)]="itemPrice" min="0" required><br>
+<input type="number" [(ngModel)]="itemPrice" min="0" required onkeyup="if(this.value<0){this.value= this.value * -1}"><br>
 <p *ngIf="inputMissing" class="allInputReq">Please fill in all input fields above !</p>
 <br>
 <button class="btn btn-primary" (click)="addItems();itemName='';itemDesc='';itemPrice=null">Add item</button><br><br>

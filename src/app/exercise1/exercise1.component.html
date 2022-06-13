@@ -13,9 +13,9 @@
 <label>Name:</label>
 <input type="text" [(ngModel)]="usName">
 <label>Age:</label>
-<input type="number" min="0" [(ngModel)]="usAge">
+<input type="number" min="0" [(ngModel)]="usAge" (click)="inputOf2Dis=false">
 <div *ngIf="buttonState"> {{ userDetails.name }} , {{ userDetails.age }} </div><br><br>
-<button class="btn btn-primary" (click)="showObj();usName='';usAge=null;" [ngClass]="{ hidden : buttonState }">Show Object</button><br><br>
+<button class="btn btn-primary" (click)="showObj();usName='';usAge=null;" [ngClass]="{ hidden : buttonState }" [disabled]="inputOf2Dis">Show Object</button><br><br>
 <button class="btn btn-primary" (click)="buttonState=false">Unhide button</button>
 
 <hr>
@@ -25,12 +25,12 @@
 <label>Name:</label>
 <input type="text" [(ngModel)]="userNameOfEx3">
 <label>Age:</label>
-<input type="number" min="0" [(ngModel)]="userAge">
+<input type="number" min="0" [(ngModel)]="userAge" (click)="inputOf3Dis=false">
 <div *ngIf="displayArray">
     <p *ngFor="let emp of userArr;">{{ emp.name }},{{ emp.age}}</p> 
 </div>
 <br><br>
-<button class="btn btn-primary" (click)="showArr();userNameOfEx3='';userAge=null">Show Array</button>
+<button class="btn btn-primary" (click)="showArr();userNameOfEx3='';userAge=null" [disabled]="inputOf3Dis">Show Array</button>
 <hr>
 
 <h4>Exercise-1.4</h4>
